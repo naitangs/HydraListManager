@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="hydram">Hydra Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.png" />
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <h2 id="langg">Idioma</h2>
+            <select id="language-select" onchange="changeLanguage(this.value)">
+                <option id="seleclang">Escolha o idioma</option>
+                <option value="pt">Português</option>
+                <option value="en">English</option>
+            </select>
+            <h2 id="imparq">Importar Arquivo</h2>
+            <form id="importFileForm">
+                <label id="anxarq" for="jsonFile">Anexar Arquivo JSON:</label>
+                <input type="file" id="fileInput" accept=".json" required>
+                <button id="butimp" type="button" onclick="importJson()">Importar JSON</button>
+            </form>
+            <h2></h2>
+            <button style="width: 100%;" id="resetjson" type="button" onclick="resetApp()">Resetar</button>
+            <small id="danger">Lembre-se, ao clicar neste botão irá resetar todo o código, então salve-o antes.</small>
+        </div>
+        <div class="container">
+            <h2 id="titlelist">Titulo da lista: </h2>
+            <form id="editListForm">
+                <input type="text" id="listTitle" name="listTitle" required>
+                <button id="buttitle" type="button" onclick="editListTitle()">Editar Título</button>
+            </form>
+            <h2 id="adcg">Adicionar Jogo</h2>
+            <form id="downloadForm">
+                <label id="namegame" for="gameName">Nome do Jogo:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label id="urltor" for="torrentUrl">URL do Torrent:</label>
+                <textarea id="uris" name="uris" rows="4" required></textarea>
+
+                <label id="dateup" for="uploadDate">Data de Upload:</label>
+                <input type="datetime-local" id="uploadDate" name="uploadDate" required>
+                <label id="sizefile" for="fileSize">Tamanho do Arquivo:</label>
+                <input type="text" id="fileSize" name="fileSize" required>
+                <small id="adcgb">Adicione 'MB' ou 'GB' ao final.</small>
+
+                <button id="adc" type="button" onclick="addDownload()">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- CONTEUDO JSON -->
+        <div class="json-container-wrapper">
+            <h2 id="codjson">Código JSON</h2>
+            <div class="json-container">
+                <button id="downjson" type="button" onclick="promptDownload()">Download JSON</button>
+                <button id="jsoncopy" type="button" onclick="copyJSON()">Copiar JSON</button>
+                <div class="json-container2">
+                    <pre id="jsonOutput"></pre>
+                </div>
+            </div>
+        </div>
+        <!-- FIM CONTEUDO JSON -->
+        <!-- CONTEUDO -->
+        <div class="table-container">
+            <h2 id="downlist">Lista de Downloads</h2>
+            <table id="downloadTable">
+                <thead>
+                    <tr>
+                        <th id="game-name">Nome do Game</th>
+                        <th id="date-up">Data de Upload</th>
+                        <th id="size-file">Tamanho do Arquivo</th>
+                        <th id="actn">Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <!-- FIM DO CONTEUDO -->
+    <footer>
+        <p id="cop">&copy; Feito por Naitan </p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script src="translations.js"></script>
+</body>
+
+</html>
